@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context="com.example.tommy.stop_watch_real.MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:textColor="#3F51B5"
+        android:textSize="20sp"
+        android:text="MENU" />
+
+<ListView
+    android:id="@+id/listContent"
+    android:layout_width="325dp"
+    android:layout_height="200dp"
+    android:layout_marginTop="20dp"
+    android:entries="@array/ListView"
+    android:layout_below="@+id/textView"
+    android:layout_alignLeft="@+id/textView"
+    android:layout_alignStart="@+id/textView" />
+
+</RelativeLayout>

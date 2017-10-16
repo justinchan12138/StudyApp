@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Stop_Watch_Real</string>
+    <string name="title_activity_set_time">SetTime</string>
+    <string name="Menu">Menu</string>
+
+    <string name="SetTime"> Set Time </string>
+    <string name="ConfirmButton"> Confirm </string>
+    <string name="StartButton"> Start </string>
+    <string name="ResetButton"> Reset </string>
+    <string name="StopButton"> Stop </string>
+    <string name="RecordList"> RecordList </string>
+
+    <string-array name="ListView">
+        <item> Count Down </item>
+        <item> Previous Record </item>
+    </string-array>
+
+
+</resources>
