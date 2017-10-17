@@ -18,7 +18,6 @@
         </activity>
         <activity android:name=".SetTime" />
         <activity android:name=".Timer" />
-        <activity android:name=".RecordList" />
         <activity android:name=".RecordListRecycle"></activity>
     </application>
 

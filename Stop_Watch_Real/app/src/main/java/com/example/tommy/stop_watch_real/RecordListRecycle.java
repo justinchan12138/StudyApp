@@ -10,30 +10,25 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class RecordListRecycle extends Activity {
 
         private RecyclerView mRecyclerView;
-        private RecyclerView.Adapter mAdapter;
+        private RecordListAdapter mAdapter;
         private RecyclerView.LayoutManager mLayoutManager;
         int totalHours = 0;
         int totalMinutes = 0;
-        Cursor myCursor;
 
-        @Override
+
+
+    @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_record_list_recycle);
-            mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
-            // use this setting to improve performance if you know that changes
-            // in content do not change the layout size of the RecyclerView
-            mRecyclerView.setHasFixedSize(true);
-
-            // use a linear layout manager
-            mLayoutManager = new LinearLayoutManager(this);
-            mRecyclerView.setLayoutManager(mLayoutManager);
             try {
                 SQLiteOpenHelper dataBaseHelper = new DataBaseHelper(this);
                 SQLiteDatabase db = dataBaseHelper.getReadableDatabase();
@@ -42,16 +37,36 @@ public class RecordListRecycle extends Activity {
                 totalHours = totalHoursCursor.getInt(0)/60;
                 totalMinutes = totalHoursCursor.getInt(0) %60;
                 totalHoursCursor.close();
-                myCursor = db.query("RECORD", new String[] {"DATE", "MINUTES"}, null, null,null,null,null);
-                myCursor.moveToFirst();
-                mAdapter = new RecordListAdapter(myCursor);
-                mRecyclerView.setAdapter(mAdapter);
-                myCursor.close();
                 db.close();}
 
             catch (SQLiteException e) {
                 e.printStackTrace();
                 Toast.makeText(RecordListRecycle.this, "Database not available", Toast.LENGTH_LONG).show();}
 
+            TextView tempTextView = (TextView) findViewById(R.id.TextViewForList);
+            tempTextView.setText("Total Time: " + Integer.toString(totalHours) + " Hours "+
+                    Integer.toString(totalMinutes) + " Minutes");
 
-        }}
+
+
+
+
+            mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
+
+            // use this setting to improve performance if you know that changes
+            // in content do not change the layout size of the RecyclerView
+            mRecyclerView.setHasFixedSize(false);
+
+            // use a linear layout manager
+            mLayoutManager = new LinearLayoutManager(this);
+            mRecyclerView.setLayoutManager(mLayoutManager);
+
+            mAdapter = new RecordListAdapter(RecordListRecycle.this);
+            mAdapter.setterForAdapter(mAdapter);
+            mRecyclerView.setAdapter(mAdapter);
+
+
+
+        }
+
+}

@@ -47,7 +47,7 @@ public class Timer extends AppCompatActivity {
         savedInstanceState.putBoolean("running",running);
     }
     public void onStart (View view) {running = true;}
-    public void onStop (View view) { running = false;}
+    public void onStop (View view)  {running = false;}
     public void onReset (View view) {
         second = minutes * 60;
         running = false;

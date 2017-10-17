@@ -34,15 +34,17 @@ public class MainActivity extends AppCompatActivity {
                         SQLiteDatabase db = dataBaseHelper.getReadableDatabase();
                         Cursor cursor = db.query("RECORD", new String[] {"LIST"}, null, null,null,null,null);
                         if (cursor.moveToFirst()) {
-                            Intent intent2 = new Intent(MainActivity.this, RecordList.class);
+                            cursor.close();
+                            db.close();
+                            Intent intent2 = new Intent(MainActivity.this, RecordListRecycle.class);
                             startActivity(intent2);}
-                        else {Toast.makeText(MainActivity.this,"There isn't a single record there",Toast.LENGTH_SHORT).show();}
-                        cursor.close();
+                        else {Toast.makeText(MainActivity.this,"There isn't a single record there",Toast.LENGTH_SHORT).show();
+                            cursor.close();
+                            db.close();}
+
                         break;
                     default: break;
                 }
-
-
 
             }
 
