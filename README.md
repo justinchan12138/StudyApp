@@ -6,4 +6,4 @@ This is an app that is created for students who want to become more productive a
 
 There are many more features that I would like to add to the app. For example, adding the subject for which the user studies into the database might make the app more informative. Or maybe add some animation when the timer is running, just to make the app more pleasant to use. More features will definitely be added to this app in the future. 
 
-I have been using this app to make myself more productive. It is amazing to be able to build something that I need. :) 
+I have been using this app to make myself more productive. It is the first app that I create. It is amazing to be able to build something that I need. :) 
